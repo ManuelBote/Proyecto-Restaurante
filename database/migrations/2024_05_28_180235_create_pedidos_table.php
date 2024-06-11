@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('ciudad', 100);
             $table->string('codigoPostal', 20);
             $table->string('pais', 100);
-            $table->foreign('idUsuario')->references('id')->on('users');
-            $table->foreign('idCarrito')->references('id')->on('carritos');
+            $table->foreign('idUsuario')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idCarrito')->references('id')->on('carritos')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -49,4 +49,18 @@ class AuthController extends Controller
 
         return response()->json(['data' => $user, 'access_token' => $token, 'token_type' => 'Bearer']);
     }
+
+    public function show($id)
+    {
+        // Buscar el usuario por su ID
+        $usuario = User::find($id);
+
+        // Si el usuario no existe, devolver un error 404
+        if (!$usuario) {
+            return response()->json(['error' => 'Usuario no encontrado'], 404);
+        }
+
+        // Devolver los datos del usuario
+        return response()->json($usuario);
+    }
 }

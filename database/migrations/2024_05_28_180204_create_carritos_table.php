@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('carritos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('idUsuario');
-            $table->foreign('idUsuario')->references('id')->on('users');
+            $table->foreign('idUsuario')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
             $table->decimal('total', 10, 2);
             $table->timestamps();
         });

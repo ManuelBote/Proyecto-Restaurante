@@ -73,8 +73,6 @@ class DetalleCarritoController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'idCarrito' => 'required|integer|exists:carritos,id',
-            'idProducto' => 'required|integer|exists:productos,id',
             'cantidad' => 'required|integer|min:1',
         ]);
 
@@ -87,8 +85,6 @@ class DetalleCarritoController extends Controller
         }
 
         // Actualizar el detalle de carrito
-        $detalleCarrito->idCarrito = $request->idCarrito;
-        $detalleCarrito->idProducto = $request->idProducto;
         $detalleCarrito->cantidad = $request->cantidad;
         $detalleCarrito->save();
 

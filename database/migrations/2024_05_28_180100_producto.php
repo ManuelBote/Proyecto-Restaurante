@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('descripcion');
             $table->boolean('stock');
             $table->unsignedBigInteger('idCategoria');
-            $table->foreign('idCategoria')->references('id')->on('categorias');
+            $table->foreign('idCategoria')->references('id')->on('categorias')->onUpdate('cascade')->onDelete('cascade');
             $table->string('imagen')->nullable();
             $table->decimal('calificacion', 8, 2)->nullable();
             $table->timestamps();
